@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARVÉNQIA Financial Group | Soluciones Crediticias y Financieras</title>
+  <meta name="description"
+    content="Soluciones de crédito ágiles, transparentes y personalizadas para personas y empresas. Simula tu crédito en línea con tasas competitivas y desembolso express." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0B192C',
+              blue: '#1E3A8A',
+              gold: '#C5A059',
+              goldLight: '#E2C98A',
+              goldDark: '#8C6D2D',
+              surface: '#F8FAFC'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #0B192C;
+      border: 3px solid #C5A059;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      transition: transform 0.15s ease;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      background: #1E3A8A;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-[#C5A059]/20 selection:text-[#0B192C]">
+
+  <!-- 1. HEADER / NAVEGACIÓN -->
+  <header class="sticky top-0 z-40 w-full bg-[#0B192C]/95 backdrop-blur-md border-b border-slate-800 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-8">
+
+        <!-- Logo textual y heráldico -->
+        <a href="#inicio" class="flex items-center gap-3 shrink-0 group">
+          <div
+            class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C5A059] to-[#8C6D2D] p-0.5 shadow-md flex items-center justify-center">
+            <div
+              class="w-full h-full bg-[#0B192C] rounded-[6px] flex items-center justify-center group-hover:bg-[#0e213a] transition-colors">
+              <span class="text-[#C5A059] font-serif font-bold text-lg tracking-wider">A</span>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-lg md:text-xl font-bold tracking-wider text-white font-serif uppercase">
+              ARVÉNQIA
+            </span>
+            <span class="text-[10px] tracking-[0.25em] text-[#C5A059] uppercase font-medium -mt-1">
+              Financial Group
+            </span>
+          </div>
+        </a>
+
+        <!-- Menú de navegación desktop -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
+          <a href="#inicio" class="hover:text-[#C5A059] transition-colors whitespace-nowrap">Inicio</a>
+          <a href="#productos" class="hover:text-[#C5A059] transition-colors whitespace-nowrap">Productos
+            Crediticios</a>
+          <a href="#simulador" class="hover:text-[#C5A059] transition-colors whitespace-nowrap">Simular Crédito</a>
+          <a href="#ventajas" class="hover:text-[#C5A059] transition-colors whitespace-nowrap">¿Por Qué Arvénqia?</a>
+          <a href="#proceso" class="hover:text-[#C5A059] transition-colors whitespace-nowrap">Pasos</a>
+          <a href="#contacto" class="hover:text-[#C5A059] transition-colors whitespace-nowrap">Contacto</a>
+        </nav>
+
+        <!-- Botón CTA destacado -->
+        <div class="flex items-center gap-3 shrink-0">
+          <button onclick="openApplyModal()"
+            class="inline-flex items-center gap-2 px-5 py-2.5 text-xs md:text-sm font-semibold text-[#0B192C] bg-gradient-to-r from-[#C5A059] via-[#E2C98A] to-[#C5A059] hover:from-[#D4AF37] hover:to-[#B38F3A] rounded-lg shadow-sm hover:shadow-md transition-all active:scale-[0.98] whitespace-nowrap">
+            <span>Solicitar Crédito</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+
+          <!-- Toggle menú móvil -->
+          <button id="mobileMenuBtn"
+            class="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Menú móvil colapsable -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-800 bg-[#0B192C] px-4 pt-3 pb-6 space-y-2">
+      <a href="#inicio"
+        class="mobile-nav-link block px-3 py-2 text-slate-200 hover:text-white hover:bg-slate-800 rounded-md">Inicio</a>
+      <a href="#productos"
+        class="mobile-nav-link block px-3 py-2 text-slate-200 hover:text-white hover:bg-slate-800 rounded-md">Productos
+        Crediticios</a>
+      <a href="#simulador"
+        class="mobile-nav-link block px-3 py-2 text-slate-200 hover:text-white hover:bg-slate-800 rounded-md">Simular
+        Crédito</a>
+      <a href="#ventajas"
+        class="mobile-nav-link block px-3 py-2 text-slate-200 hover:text-white hover:bg-slate-800 rounded-md">¿Por Qué
+        Arvénqia?</a>
+      <a href="#proceso"
+        class="mobile-nav-link block px-3 py-2 text-slate-200 hover:text-white hover:bg-slate-800 rounded-md">Pasos</a>
+      <a href="#contacto"
+        class="mobile-nav-link block px-3 py-2 text-slate-200 hover:text-white hover:bg-slate-800 rounded-md">Contacto</a>
+      <div class="pt-2 border-t border-slate-800">
+        <button onclick="openApplyModal()"
+          class="w-full py-2.5 bg-[#C5A059] text-[#0B192C] font-semibold text-sm rounded-lg">
+          Solicitar Crédito Ahora
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. HERO SECTION -->
+  <section id="inicio" class="relative overflow-hidden bg-[#0B192C] text-white">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0B192C] via-[#0B192C]/95 to-[#1E3A8A]/30"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 lg:pt-24 lg:pb-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+        <div class="lg:col-span-7 space-y-6">
+          <div class="flex items-center gap-2 text-xs md:text-sm font-semibold tracking-wider text-[#C5A059] uppercase">
+            <span>Banca Privada & Soluciones Crediticias</span>
+            <span aria-hidden="true" class="text-slate-500">·</span>
+            <span class="text-slate-300">Respaldo Institucional</span>
+          </div>
+
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-white leading-[1.15] font-serif max-w-2xl">
+            Financiamiento inteligente para impulsar tu visión patrimonial y empresarial
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 max-w-xl leading-relaxed font-normal">
+            Accede a soluciones de crédito diseñadas a tu medida con tasas preferenciales transparentes,
+            aprobación digital en minutos y desembolso express en menos de 24 horas. Sin intermediarios ni comisiones
+            ocultas.
+          </p>
+
+          <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <a href="#simulador"
+              class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base font-semibold text-[#0B192C] bg-gradient-to-r from-[#C5A059] via-[#E2C98A] to-[#C5A059] hover:from-[#D4AF37] hover:to-[#B38F3A] rounded-lg shadow-lg transition-all">
+              <i data-lucide="calculator" class="w-5 h-5"></i>
+              <span>Simular mi Crédito</span>
+            </a>
+            <a href="#productos"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-medium text-slate-200 hover:text-white bg-slate-800/80 hover:bg-slate-800 border border-slate-700 rounded-lg transition-all">
+              <span>Conocer Productos</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <div class="pt-4 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-400">
+            <div class="flex items-center gap-1.5">
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#C5A059]"></i>
+              <span>Cero costo de estudio de crédito</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#C5A059]"></i>
+              <span>Prepagos sin penalidades</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#C5A059]"></i>
+              <span>Supervisión y cumplimiento legal</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Tasas Referenciales -->
+        <div class="lg:col-span-5">
+          <div
+            class="rounded-2xl bg-slate-900/90 border border-slate-700/80 p-6 md:p-8 backdrop-blur-md shadow-2xl space-y-6">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+              <div>
+                <h2 class="text-base font-semibold text-white">Líneas de Crédito Activas</h2>
+                <p class="text-xs text-slate-400">Condiciones vigentes al 2026</p>
+              </div>
+              <div class="text-right">
+                <span class="text-xs text-[#C5A059] font-medium uppercase tracking-wider block">TCEA Desde</span>
+                <span class="text-xl font-bold font-mono text-white">11.80%</span>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <div
+                class="p-3.5 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
+                <div>
+                  <span class="text-sm font-medium text-white block">Crédito Personal Express</span>
+                  <span class="text-xs text-slate-400">Hasta $35,000 · Plazo 12 - 48 meses</span>
+                </div>
+                <span
+                  class="text-xs font-mono font-semibold px-2 py-1 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded">
+                  Aprobación 15 min
+                </span>
+              </div>
+
+              <div
+                class="p-3.5 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
+                <div>
+                  <span class="text-sm font-medium text-white block">Crédito PYME / Negocio</span>
+                  <span class="text-xs text-slate-400">Hasta $250,000 · Con gracia comercial</span>
+                </div>
+                <span
+                  class="text-xs font-mono font-semibold px-2 py-1 bg-amber-950 text-amber-300 border border-amber-800 rounded">
+                  Tasa Preferencial
+                </span>
+              </div>
+
+              <div
+                class="p-3.5 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
+                <div>
+                  <span class="text-sm font-medium text-white block">Hipotecario & Consolidación</span>
+                  <span class="text-xs text-slate-400">Hasta $600,000 · Hasta 120 meses</span>
+                </div>
+                <span
+                  class="text-xs font-mono font-semibold px-2 py-1 bg-blue-950 text-blue-300 border border-blue-800 rounded">
+                  Mayor Plazo
+                </span>
+              </div>
+            </div>
+
+            <button onclick="openApplyModal()"
+              class="w-full flex items-center justify-center gap-2 py-3 px-4 text-sm font-semibold text-white bg-[#1E3A8A] hover:bg-blue-800 rounded-xl transition-colors shadow-md">
+              <span>Iniciar Calificación en Línea</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Métricas 4 Columnas -->
+      <div class="mt-16 pt-10 border-t border-slate-800/80 grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+        <div>
+          <span class="text-2xl sm:text-3xl font-extrabold text-white font-mono">+$280M</span>
+          <p class="text-xs sm:text-sm font-medium text-slate-300">Capital Colocado</p>
+          <p class="text-xs text-slate-500">En personas y empresas</p>
+        </div>
+        <div>
+          <span class="text-2xl sm:text-3xl font-extrabold text-[#C5A059] font-mono">&lt; 24h</span>
+          <p class="text-xs sm:text-sm font-medium text-slate-300">Desembolso Promedio</p>
+          <p class="text-xs text-slate-500">Transferencia bancaria directa</p>
+        </div>
+        <div>
+          <span class="text-2xl sm:text-3xl font-extrabold text-white font-mono">99.4%</span>
+          <p class="text-xs sm:text-sm font-medium text-slate-300">Satisfacción</p>
+          <p class="text-xs text-slate-500">Más de 14,000 operaciones</p>
+        </div>
+        <div>
+          <span class="text-2xl sm:text-3xl font-extrabold text-white font-mono">0%</span>
+          <p class="text-xs sm:text-sm font-medium text-slate-300">Comisiones Ocultas</p>
+          <p class="text-xs text-slate-500">Transparencia contractual</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SIMULADOR DE CRÉDITO INTERACTIVO (JAVASCRIPT) -->
+  <section id="simulador" class="py-20 bg-slate-100/70 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div
+          class="flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#1E3A8A]">
+          <span>Simulador Financiero en Tiempo Real</span>
+          <span aria-hidden="true" class="text-slate-400">·</span>
+          <span>Cálculo Transparente</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-serif text-[#0B192C] tracking-tight">
+          Calcula tu cuota mensual sin compromisos
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600">
+          Ajusta el monto, plazo y tipo de financiamiento para obtener tu cuota estimada con amortización francesa.
+        </p>
+      </div>
+
+      <!-- Selector de producto -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+        <button id="btnProdPersonal" onclick="setSimProduct('personal')"
+          class="sim-tab-btn px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-xl bg-[#0B192C] text-white shadow-md">
+          Crédito Personal & Consumo
+        </button>
+        <button id="btnProdPyme" onclick="setSimProduct('pyme')"
+          class="sim-tab-btn px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-xl bg-white text-slate-700 hover:bg-slate-50 border border-slate-200">
+          Crédito PYME / Capital
+        </button>
+        <button id="btnProdHipotecario" onclick="setSimProduct('hipotecario')"
+          class="sim-tab-btn px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-xl bg-white text-slate-700 hover:bg-slate-50 border border-slate-200">
+          Hipotecario / Inmobiliario
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- Controles deslizantes (Col 1-7) -->
+        <div class="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-8">
+
+          <div class="flex justify-between items-center pb-4 border-b border-slate-100">
+            <div>
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block">Producto Activo</span>
+              <span id="lblActiveProduct" class="text-sm font-bold text-[#0B192C]">Crédito Personal & Consumo</span>
+            </div>
+            <div class="text-xs font-mono font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-md">
+              Moneda: USD ($)
+            </div>
+          </div>
+
+          <!-- Slider Monto -->
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <label for="rangeAmount" class="text-sm font-semibold text-[#0B192C] block">Monto a Solicitar</label>
+                <span class="text-xs text-slate-500">¿Cuánto capital necesitas?</span>
+              </div>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-sm">$</span>
+                <input type="number" id="inputAmount"
+                  class="w-36 sm:w-44 pl-7 pr-3 py-2 text-right font-mono font-bold text-base text-[#0B192C] bg-slate-50 border border-slate-300 rounded-lg"
+                  value="10000" />
+              </div>
+            </div>
+            <input type="range" id="rangeAmount"
+              class="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer" min="1000" max="35000"
+              step="500" value="10000" />
+            <div class="flex justify-between text-xs text-slate-500 font-mono">
+              <span id="lblMinAmount">$1,000</span>
+              <span id="lblMaxAmount">$35,000</span>
+            </div>
+          </div>
+
+          <!-- Slider Plazo -->
+          <div class="space-y-4 pt-2">
+            <div class="flex items-center justify-between">
+              <div>
+                <label for="rangeTerm" class="text-sm font-semibold text-[#0B192C] block">Plazo de Pago</label>
+                <span class="text-xs text-slate-500">Número de cuotas mensuales</span>
+              </div>
+              <div class="flex items-center gap-1.5 font-mono">
+                <input type="number" id="inputTerm"
+                  class="w-20 px-2 py-2 text-center font-mono font-bold text-base text-[#0B192C] bg-slate-50 border border-slate-300 rounded-lg"
+                  value="24" />
+                <span class="text-sm font-medium text-slate-600">meses</span>
+              </div>
+            </div>
+            <input type="range" id="rangeTerm"
+              class="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer" min="6" max="48" step="6"
+              value="24" />
+            <div class="flex justify-between text-xs text-slate-500 font-mono">
+              <span id="lblMinTerm">6 meses</span>
+              <span id="lblMaxTerm">48 meses</span>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 flex items-start gap-3">
+            <i data-lucide="info" class="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5"></i>
+            <span>Cálculo referencial bajo sistema de amortización francesa. Tasa y cuota definitivas sujetas a
+              evaluación crediticia.</span>
+          </div>
+
+        </div>
+
+        <!-- Resultados dinámicos (Col 8-12) -->
+        <div
+          class="lg:col-span-5 bg-[#0B192C] text-white rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl space-y-6">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <span class="text-xs font-semibold tracking-wider uppercase text-[#C5A059]">Resumen de Cálculo</span>
+            <span id="lblCuotasCount" class="text-xs text-slate-400 font-mono">24 cuotas</span>
+          </div>
+
+          <div class="p-5 rounded-xl bg-slate-900 border border-slate-700/80 space-y-1">
+            <span class="text-xs text-slate-400 block font-medium">Cuota Mensual Estimada</span>
+            <div class="flex items-baseline gap-2">
+              <span id="resMonthlyPayment"
+                class="text-3xl sm:text-4xl font-extrabold text-[#C5A059] font-mono">$482.50</span>
+              <span class="text-xs text-slate-400">/ mes</span>
+            </div>
+            <p class="text-[11px] text-slate-400 pt-1">Incluye capital, interés y seguro de desgravamen.</p>
+          </div>
+
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between py-2 border-b border-slate-800">
+              <span class="text-slate-400">Tasa Referencial (TEA)</span>
+              <span id="resTea" class="font-mono font-semibold text-white">14.50%</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-slate-800">
+              <span class="text-slate-400">Monto del Préstamo</span>
+              <span id="resAmount" class="font-mono font-semibold text-white">$10,000.00</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-slate-800">
+              <span class="text-slate-400">Intereses Totales Estimados</span>
+              <span id="resInterests" class="font-mono font-semibold text-slate-200">$1,580.00</span>
+            </div>
+            <div class="flex justify-between py-2">
+              <span class="text-slate-300 font-medium">Total a Pagar Estimado</span>
+              <span id="resTotalPayment" class="font-mono font-bold text-lg text-white">$11,580.00</span>
+            </div>
+          </div>
+
+          <button onclick="startApplicationFromSim()"
+            class="w-full flex items-center justify-center gap-2.5 py-4 px-5 text-sm sm:text-base font-bold text-[#0B192C] bg-gradient-to-r from-[#C5A059] via-[#E2C98A] to-[#C5A059] hover:from-[#D4AF37] hover:to-[#B38F3A] rounded-xl shadow-lg transition-all active:scale-[0.98]">
+            <span>Iniciar Solicitud con este Monto</span>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-[#0B192C]"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. NUESTROS PRODUCTOS CREDITICIOS -->
+  <section id="productos" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="max-w-3xl mb-16 space-y-3">
+        <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#C5A059]">
+          <span>Portafolio Crediticio</span>
+          <span aria-hidden="true" class="text-slate-400">·</span>
+          <span>Soluciones Especializadas</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-serif text-[#0B192C] tracking-tight">
+          Líneas de crédito diseñadas para tus metas y crecimiento
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600">
+          Transparencia absoluta desde el primer contacto. Selecciona la alternativa idónea para tu etapa personal o
+          corporativa.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+
+        <!-- Tarjeta 1: Personal -->
+        <div
+          class="rounded-2xl bg-slate-50/70 border border-slate-200 p-6 flex flex-col justify-between hover:shadow-lg transition-all">
+          <div class="space-y-4">
+            <div class="flex justify-between items-center">
+              <div class="w-12 h-12 rounded-xl bg-[#0B192C] text-[#C5A059] flex items-center justify-center">
+                <i data-lucide="user-check" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-mono font-bold text-[#1E3A8A] bg-blue-50 px-2.5 py-1 rounded-md">TEA
+                14.50%</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-[#0B192C] font-serif">Crédito Personal Express</h3>
+              <p class="text-xs text-slate-500 font-medium">Libre disponibilidad</p>
+            </div>
+            <p class="text-xs text-slate-600">Financiamiento sin avales hasta $35,000 para proyectos, viajes, salud o
+              consolidación.</p>
+            <ul class="text-xs text-slate-700 space-y-1.5 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                Aprobación en 15 minutos</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                Desembolso en 24 horas</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sin
+                penalidad de prepago</li>
+            </ul>
+          </div>
+          <div class="pt-6 mt-6 border-t border-slate-200">
+            <button onclick="openApplyModalWithProduct('Crédito Personal & Consumo')"
+              class="w-full py-2.5 bg-white hover:bg-[#0B192C] hover:text-white border border-slate-300 rounded-xl text-xs font-semibold text-[#0B192C] transition-colors">
+              Solicitar Crédito
+            </button>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2: PYME -->
+        <div
+          class="rounded-2xl bg-slate-50/70 border border-slate-200 p-6 flex flex-col justify-between hover:shadow-lg transition-all">
+          <div class="space-y-4">
+            <div class="flex justify-between items-center">
+              <div class="w-12 h-12 rounded-xl bg-[#0B192C] text-[#C5A059] flex items-center justify-center">
+                <i data-lucide="briefcase" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-mono font-bold text-[#1E3A8A] bg-blue-50 px-2.5 py-1 rounded-md">TEA
+                11.80%</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-[#0B192C] font-serif">Crédito PYME & Capital</h3>
+              <p class="text-xs text-slate-500 font-medium">Expansión de negocio</p>
+            </div>
+            <p class="text-xs text-slate-600">Hasta $250,000 para compra de activos, mercadería o liquidez operativa con
+              gracia.</p>
+            <ul class="text-xs text-slate-700 space-y-1.5 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                Periodo de gracia 6 meses</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                Evaluación por flujo real</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                Asesor corporate asignado</li>
+            </ul>
+          </div>
+          <div class="pt-6 mt-6 border-t border-slate-200">
+            <button onclick="openApplyModalWithProduct('Crédito PYME / Capital de Trabajo')"
+              class="w-full py-2.5 bg-white hover:bg-[#0B192C] hover:text-white border border-slate-300 rounded-xl text-xs font-semibold text-[#0B192C] transition-colors">
+              Solicitar Crédito
+            </button>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: Hipotecario -->
+        <div
+          class="rounded-2xl bg-slate-50/70 border border-slate-200 p-6 flex flex-col justify-between hover:shadow-lg transition-all">
+          <div class="space-y-4">
+            <div class="flex justify-between items-center">
+              <div class="w-12 h-12 rounded-xl bg-[#0B192C] text-[#C5A059] flex items-center justify-center">
+                <i data-lucide="home" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-mono font-bold text-[#1E3A8A] bg-blue-50 px-2.5 py-1 rounded-md">TEA
+                8.90%</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-[#0B192C] font-serif">Hipotecario & Bienes</h3>
+              <p class="text-xs text-slate-500 font-medium">Largo plazo hasta 20 años</p>
+            </div>
+            <p class="text-xs text-slate-600">Hasta $600,000 para vivienda, oficinas o locales comerciales con
+              financiamiento al 85%.</p>
+            <ul class="text-xs text-slate-700 space-y-1.5 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Plazo
+                extendido hasta 240 m</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                Tasación pericial express</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Tasa
+                fija preferencial</li>
+            </ul>
+          </div>
+          <div class="pt-6 mt-6 border-t border-slate-200">
+            <button onclick="openApplyModalWithProduct('Crédito Hipotecario / Vehicular')"
+              class="w-full py-2.5 bg-white hover:bg-[#0B192C] hover:text-white border border-slate-300 rounded-xl text-xs font-semibold text-[#0B192C] transition-colors">
+              Solicitar Crédito
+            </button>
+          </div>
+        </div>
+
+        <!-- Tarjeta 4: Consolidación -->
+        <div
+          class="rounded-2xl bg-slate-50/70 border border-slate-200 p-6 flex flex-col justify-between hover:shadow-lg transition-all">
+          <div class="space-y-4">
+            <div class="flex justify-between items-center">
+              <div class="w-12 h-12 rounded-xl bg-[#0B192C] text-[#C5A059] flex items-center justify-center">
+                <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md">Ahorra
+                35%</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-[#0B192C] font-serif">Consolidación de Deuda</h3>
+              <p class="text-xs text-slate-500 font-medium">Unifica tus obligaciones</p>
+            </div>
+            <p class="text-xs text-slate-600">Unifica múltiples tarjetas o deudas bancarias en una sola cuota mensual
+              baja.</p>
+            <ul class="text-xs text-slate-700 space-y-1.5 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Una
+                sola fecha mensual</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                Disminuye interés total</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                Alivio financiero inmediato</li>
+            </ul>
+          </div>
+          <div class="pt-6 mt-6 border-t border-slate-200">
+            <button onclick="openApplyModalWithProduct('Consolidación de Deudas')"
+              class="w-full py-2.5 bg-white hover:bg-[#0B192C] hover:text-white border border-slate-300 rounded-xl text-xs font-semibold text-[#0B192C] transition-colors">
+              Solicitar Crédito
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. ¿POR QUÉ ELEGIR ARVÉNQIA? (VENTAJAS COMPETITIVAS) -->
+  <section id="ventajas" class="py-24 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="max-w-3xl mb-16 space-y-3">
+        <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#C5A059]">
+          <span>Ventajas Competitivas</span>
+          <span aria-hidden="true" class="text-slate-500">·</span>
+          <span class="text-slate-400">Diferenciación Real</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-serif text-white tracking-tight">
+          La solidez de la banca privada con la agilidad del ecosistema digital
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300">
+          Eliminamos la burocracia tradicional para entregarte fondos cuando los necesitas con total claridad de costos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-[#0B192C] text-[#C5A059] flex items-center justify-center">
+            <i data-lucide="file-check-2" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-lg font-bold font-serif text-white">100% Digital y Sin Papeleo</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">Firma electrónica certificada y validación de identidad
+            biométrica en minutos desde tu celular.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-[#0B192C] text-[#C5A059] flex items-center justify-center">
+            <i data-lucide="scale" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-lg font-bold font-serif text-white">Tasas Transparentes</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">Cero comisiones ocultas de apertura y libertad absoluta de
+            prepago sin ninguna penalización.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-[#0B192C] text-[#C5A059] flex items-center justify-center">
+            <i data-lucide="zap" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-lg font-bold font-serif text-white">Desembolso Récord</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">Pre-aprobación algorítmica en 15 minutos y fondos
+            acreditados en tu cuenta bancaria en menos de 24 horas.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-[#0B192C] text-[#C5A059] flex items-center justify-center">
+            <i data-lucide="user-check" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-lg font-bold font-serif text-white">Asesoría Patrimonial</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">Un ejecutivo financiero asignado para optimizar tu
+            estructura de endeudamiento y flujo de caja.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. PASOS PARA OBTENER EL CRÉDITO (1-2-3-4) -->
+  <section id="proceso" class="py-24 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div
+          class="flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#1E3A8A]">
+          <span>Flujo Simple</span>
+          <span aria-hidden="true" class="text-slate-400">·</span>
+          <span>4 Pasos</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-serif text-[#0B192C] tracking-tight">
+          Cómo acceder a tu financiamiento en ARVÉNQIA
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600">
+          Un proceso digital fluido pensado para respetar tu tiempo y brindarte liquidez oportuna.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+          <span class="text-2xl font-black font-mono text-[#C5A059]">01</span>
+          <h3 class="text-base font-bold font-serif text-[#0B192C]">Simula tu Crédito</h3>
+          <p class="text-xs text-slate-600">Ajusta el monto y plazo que necesitas y visualiza tu cuota mensual estimada
+            en tiempo real.</p>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+          <span class="text-2xl font-black font-mono text-[#C5A059]">02</span>
+          <h3 class="text-base font-bold font-serif text-[#0B192C]">Completa tu Solicitud</h3>
+          <p class="text-xs text-slate-600">Ingresa tus datos personales y laborales básicos mediante nuestro formulario
+            seguro en 3 minutos.</p>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+          <span class="text-2xl font-black font-mono text-[#C5A059]">03</span>
+          <h3 class="text-base font-bold font-serif text-[#0B192C]">Validación Express</h3>
+          <p class="text-xs text-slate-600">Nuestro scoring algorítmico evalúa tu perfil y un asesor valida tu oferta
+            formal en minutos.</p>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+          <span class="text-2xl font-black font-mono text-[#C5A059]">04</span>
+          <h3 class="text-base font-bold font-serif text-[#0B192C]">Recibe tu Dinero</h3>
+          <p class="text-xs text-slate-600">Firma tu contrato electrónicamente y recibe los fondos directo en tu cuenta
+            bancaria en &lt; 24h.</p>
+        </div>
+
+      </div>
+
+      <div class="mt-12 text-center">
+        <button onclick="openApplyModal()"
+          class="px-8 py-3.5 text-sm font-semibold text-[#0B192C] bg-[#C5A059] hover:bg-[#D4AF37] rounded-xl shadow-md">
+          Iniciar Solicitud Ahora
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. TESTIMONIOS Y CONFIANZA -->
+  <section class="py-24 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div
+          class="flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#C5A059]">
+          <span>Casos de Éxito</span>
+          <span aria-hidden="true" class="text-slate-400">·</span>
+          <span>Historias Reales</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-serif text-[#0B192C] tracking-tight">
+          La confianza de nuestros prestatarios
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs space-y-4">
+          <div class="flex text-[#C5A059] gap-1">
+            <i data-lucide="star" class="w-4 h-4 fill-[#C5A059]"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-[#C5A059]"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-[#C5A059]"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-[#C5A059]"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-[#C5A059]"></i>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 italic">"Obtuvimos $85,000 en 22 horas para una orden de
+            exportación urgente. Sin su rapidez habríamos perdido el contrato."</p>
+          <div class="pt-4 border-t border-slate-100">
+            <span class="text-sm font-bold text-[#0B192C] block">Mariana Valenzuela</span>
+            <span class="text-xs text-slate-500">CEO, Textiles V&M</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs space-y-4">
+          <div class="flex text-[#C5A059] gap-1">
+            <i data-lucide="star" class="w-4 h-4 fill-[#C5A059]"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-[#C5A059]"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-[#C5A059]"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-[#C5A059]"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-[#C5A059]"></i>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 italic">"Consolidé mis deudas con un interés mucho menor. Ahorro
+            $740 al mes y sé exactamente cuándo termino de pagar."</p>
+          <div class="pt-4 border-t border-slate-100">
+            <span class="text-sm font-bold text-[#0B192C] block">Dr. Roberto Mendoza</span>
+            <span class="text-xs text-slate-500">Médico Especialista</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs space-y-4">
+          <div class="flex text-[#C5A059] gap-1">
+            <i data-lucide="star" class="w-4 h-4 fill-[#C5A059]"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-[#C5A059]"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-[#C5A059]"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-[#C5A059]"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-[#C5A059]"></i>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 italic">"Financiamos nuestro primer departamento al 85% con tasa
+            fija garantizada. Excelente trato y asesoría clara."</p>
+          <div class="pt-4 border-t border-slate-100">
+            <span class="text-sm font-bold text-[#0B192C] block">Familia Arismendi</span>
+            <span class="text-xs text-slate-500">Crédito Hipotecario</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Insignias de Seguridad -->
+      <div
+        class="p-6 sm:p-8 rounded-2xl bg-[#0B192C] text-white grid grid-cols-1 sm:grid-cols-3 gap-6 text-center sm:text-left">
+        <div class="flex items-center gap-3">
+          <i data-lucide="lock" class="w-6 h-6 text-[#C5A059] shrink-0"></i>
+          <div>
+            <span class="text-xs font-bold block">Encriptación TLS 1.3 / SSL 256-bit</span>
+            <span class="text-[11px] text-slate-400">Seguridad informática grado bancario</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <i data-lucide="shield-check" class="w-6 h-6 text-[#C5A059] shrink-0"></i>
+          <div>
+            <span class="text-xs font-bold block">Supervisión Regulatoria</span>
+            <span class="text-[11px] text-slate-400">Cumplimiento estricto AML/KYC</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <i data-lucide="file-check" class="w-6 h-6 text-[#C5A059] shrink-0"></i>
+          <div>
+            <span class="text-xs font-bold block">Firma Digital Certificada</span>
+            <span class="text-[11px] text-slate-400">Validez legal plena ISO 27001</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. FOOTER (PIE DE PÁGINA) -->
+  <footer id="contacto" class="bg-[#0B192C] text-white border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-bold font-serif tracking-wider uppercase">ARVÉNQIA</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Entidad financiera líder en soluciones de crédito personal, corporativo e hipotecario ágil y transparente.
+          </p>
+          <div class="text-xs text-slate-400 space-y-1">
+            <p><strong>Teléfono:</strong> +51 (1) 710-8400</p>
+            <p><strong>Email:</strong> contacto@arvenqiafinancial.com</p>
+            <p><strong>Dirección:</strong> Av. V.A. Belaúnde 147, Piso 12, San Isidro</p>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-[#C5A059]">Líneas de Crédito</h4>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li><a href="#productos" class="hover:text-white">Crédito Personal Express</a></li>
+            <li><a href="#productos" class="hover:text-white">Crédito PYME / Capital</a></li>
+            <li><a href="#productos" class="hover:text-white">Crédito Hipotecario</a></li>
+            <li><a href="#productos" class="hover:text-white">Consolidación de Deudas</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-[#C5A059]">Información Legal</h4>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li><a href="javascript:void(0)"
+                onclick="alert('Políticas de Privacidad: ARVÉNQIA cumple con la Ley de Protección de Datos Personales.')"
+                class="hover:text-white">Políticas de Privacidad</a></li>
+            <li><a href="javascript:void(0)"
+                onclick="alert('Términos y Condiciones: La simulación es referencial y sujeta a evaluación crediticia formal.')"
+                class="hover:text-white">Términos y Condiciones</a></li>
+            <li><a href="javascript:void(0)"
+                onclick="alert('Libro de Reclamaciones Digital registrado ante la autoridad competente.')"
+                class="hover:text-white">Libro de Reclamaciones</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-[#C5A059]">Contacto Rápido</h4>
+          <form onsubmit="event.preventDefault(); alert('¡Gracias! Un asesor se comunicará contigo a la brevedad.');"
+            class="space-y-2">
+            <input type="email" required placeholder="Tu correo electrónico..."
+              class="w-full px-3 py-2 text-xs bg-slate-900 border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none" />
+            <button type="submit"
+              class="w-full py-2 bg-[#C5A059] text-[#0B192C] font-semibold text-xs rounded-lg hover:bg-[#D4AF37]">
+              Contactar Asesor
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div
+        class="mt-12 pt-6 border-t border-slate-800 text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <span>© 2026 ARVÉNQIA FINANCIAL GROUP. Todos los derechos reservados.</span>
+        <span>Supervisión y cumplimiento normativo integral.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL DE SOLICITUD DE CRÉDITO -->
+  <div id="applyModal"
+    class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 space-y-5 border border-slate-200 shadow-2xl">
+      <div class="flex justify-between items-center pb-3 border-b border-slate-200">
+        <div>
+          <span class="text-xs font-semibold text-[#C5A059] uppercase tracking-wider">Solicitud Digital</span>
+          <h3 class="text-lg font-bold font-serif text-[#0B192C]">Iniciar Solicitud de Crédito</h3>
+        </div>
+        <button onclick="closeApplyModal()" class="text-slate-400 hover:text-slate-700">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="applyForm" onsubmit="handleApplySubmit(event)" class="space-y-4">
+        <div>
+          <label class="text-xs font-semibold text-slate-700 block mb-1">Producto</label>
+          <input type="text" id="modalProduct" readonly
+            class="w-full px-3 py-2 text-xs font-semibold bg-slate-100 border border-slate-300 rounded-lg text-slate-700"
+            value="Crédito Personal & Consumo" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="text-xs font-semibold text-slate-700 block mb-1">Monto ($)</label>
+            <input type="number" id="modalAmount" required
+              class="w-full px-3 py-2 text-xs font-mono font-bold bg-slate-50 border border-slate-300 rounded-lg"
+              value="10000" />
+          </div>
+          <div>
+            <label class="text-xs font-semibold text-slate-700 block mb-1">Plazo (meses)</label>
+            <input type="number" id="modalTerm" required
+              class="w-full px-3 py-2 text-xs font-mono bg-slate-50 border border-slate-300 rounded-lg" value="24" />
+          </div>
+        </div>
+
+        <div>
+          <label class="text-xs font-semibold text-slate-700 block mb-1">Nombres y Apellidos *</label>
+          <input type="text" id="modalFullName" required placeholder="Ej. Carlos Ramírez"
+            class="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-300 rounded-lg" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="text-xs font-semibold text-slate-700 block mb-1">DNI / Documento *</label>
+            <input type="text" id="modalDoc" required placeholder="45892019"
+              class="w-full px-3 py-2 text-xs font-mono bg-slate-50 border border-slate-300 rounded-lg" />
+          </div>
+          <div>
+            <label class="text-xs font-semibold text-slate-700 block mb-1">Teléfono Móvil *</label>
+            <input type="tel" id="modalPhone" required placeholder="+51 987 654 321"
+              class="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-300 rounded-lg" />
+          </div>
+        </div>
+
+        <div>
+          <label class="text-xs font-semibold text-slate-700 block mb-1">Correo Electrónico *</label>
+          <input type="email" id="modalEmail" required placeholder="correo@ejemplo.com"
+            class="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-300 rounded-lg" />
+        </div>
+
+        <div class="pt-2">
+          <button type="submit"
+            class="w-full py-3 bg-[#C5A059] hover:bg-[#D4AF37] text-[#0B192C] font-bold text-sm rounded-xl transition-all shadow-md">
+            Confirmar y Enviar Solicitud Express
+          </button>
+        </div>
+      </form>
+
+      <div id="applySuccess" class="hidden text-center py-6 space-y-3">
+        <i data-lucide="check-circle" class="w-12 h-12 text-emerald-600 mx-auto"></i>
+        <h4 class="text-xl font-bold font-serif text-[#0B192C]">¡Solicitud Registrada con Éxito!</h4>
+        <p class="text-xs text-slate-600">Código de expediente: <strong id="resTrackingCode"
+            class="font-mono text-[#0B192C]">ARV-2026-9281</strong></p>
+        <p class="text-xs text-slate-500">Un asesor crediticio asignado te contactará en menos de 15 minutos para
+          validar la transferencia.</p>
+        <button onclick="closeApplyModal()"
+          class="mt-4 px-6 py-2 bg-[#0B192C] text-white text-xs rounded-lg font-semibold">Cerrar</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT VANILLA EMBEBIDO -->
+  <script>
+    // Inicializar Iconos Lucide
+    lucide.createIcons();
+
+    // Estado del Simulador
+    const SIM_CONFIG = {
+      personal: {
+        name: 'Crédito Personal & Consumo',
+        tea: 14.50,
+        minAmount: 1000,
+        maxAmount: 35000,
+        defaultAmount: 10000,
+        stepAmount: 500,
+        minTerm: 6,
+        maxTerm: 48,
+        defaultTerm: 24,
+        stepTerm: 6
+      },
+      pyme: {
+        name: 'Crédito PYME / Capital',
+        tea: 11.80,
+        minAmount: 5000,
+        maxAmount: 250000,
+        defaultAmount: 45000,
+        stepAmount: 2500,
+        minTerm: 12,
+        maxTerm: 60,
+        defaultTerm: 36,
+        stepTerm: 6
+      },
+      hipotecario: {
+        name: 'Hipotecario & Inmobiliario',
+        tea: 8.90,
+        minAmount: 20000,
+        maxAmount: 600000,
+        defaultAmount: 120000,
+        stepAmount: 5000,
+        minTerm: 24,
+        maxTerm: 180,
+        defaultTerm: 72,
+        stepTerm: 12
+      }
+    };
+
+    let currentProd = 'personal';
+
+    // Elementos DOM
+    const rangeAmount = document.getElementById('rangeAmount');
+    const inputAmount = document.getElementById('inputAmount');
+    const rangeTerm = document.getElementById('rangeTerm');
+    const inputTerm = document.getElementById('inputTerm');
+    const resMonthlyPayment = document.getElementById('resMonthlyPayment');
+    const resTea = document.getElementById('resTea');
+    const resAmount = document.getElementById('resAmount');
+    const resInterests = document.getElementById('resInterests');
+    const resTotalPayment = document.getElementById('resTotalPayment');
+    const lblCuotasCount = document.getElementById('lblCuotasCount');
+    const lblActiveProduct = document.getElementById('lblActiveProduct');
+
+    function calculateCredit() {
+      const config = SIM_CONFIG[currentProd];
+      const amount = parseFloat(inputAmount.value) || config.minAmount;
+      const term = parseInt(inputTerm.value) || config.minTerm;
+      const tea = config.tea / 100;
+
+      // Tasa mensual efectiva: i = (1 + TEA)^(1/12) - 1
+      const monthlyRate = Math.pow(1 + tea, 1 / 12) - 1;
+      const insuranceRate = 0.00045; // Desgravamen
+
+      // Fórmula amortización francesa
+      let basePayment = (amount * monthlyRate * Math.pow(1 + monthlyRate, term)) / (Math.pow(1 + monthlyRate, term) - 1);
+      let monthlyInsurance = amount * insuranceRate;
+      let totalMonthly = basePayment + monthlyInsurance;
+      let totalPayment = totalMonthly * term;
+      let totalInterest = totalPayment - amount;
+
+      // Actualizar UI
+      resMonthlyPayment.textContent = '$' + totalMonthly.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      resTea.textContent = config.tea.toFixed(2) + '%';
+      resAmount.textContent = '$' + amount.toLocaleString('en-US', { minimumFractionDigits: 2 });
+      resInterests.textContent = '$' + totalInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      resTotalPayment.textContent = '$' + totalPayment.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      lblCuotasCount.textContent = term + ' cuotas';
+    }
+
+    function setSimProduct(prodKey) {
+      currentProd = prodKey;
+      const cfg = SIM_CONFIG[prodKey];
+      lblActiveProduct.textContent = cfg.name;
+
+      // Actualizar tabs
+      document.querySelectorAll('.sim-tab-btn').forEach(b => {
+        b.className = 'sim-tab-btn px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-xl bg-white text-slate-700 hover:bg-slate-50 border border-slate-200';
+      });
+      if (prodKey === 'personal') document.getElementById('btnProdPersonal').className = 'sim-tab-btn px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-xl bg-[#0B192C] text-white shadow-md';
+      if (prodKey === 'pyme') document.getElementById('btnProdPyme').className = 'sim-tab-btn px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-xl bg-[#0B192C] text-white shadow-md';
+      if (prodKey === 'hipotecario') document.getElementById('btnProdHipotecario').className = 'sim-tab-btn px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-xl bg-[#0B192C] text-white shadow-md';
+
+      // Actualizar límites de inputs
+      rangeAmount.min = cfg.minAmount;
+      rangeAmount.max = cfg.maxAmount;
+      rangeAmount.step = cfg.stepAmount;
+      rangeAmount.value = cfg.defaultAmount;
+      inputAmount.value = cfg.defaultAmount;
+      document.getElementById('lblMinAmount').textContent = '$' + cfg.minAmount.toLocaleString();
+      document.getElementById('lblMaxAmount').textContent = '$' + cfg.maxAmount.toLocaleString();
+
+      rangeTerm.min = cfg.minTerm;
+      rangeTerm.max = cfg.maxTerm;
+      rangeTerm.step = cfg.stepTerm;
+      rangeTerm.value = cfg.defaultTerm;
+      inputTerm.value = cfg.defaultTerm;
+      document.getElementById('lblMinTerm').textContent = cfg.minTerm + ' meses';
+      document.getElementById('lblMaxTerm').textContent = cfg.maxTerm + ' meses';
+
+      calculateCredit();
+    }
+
+    // Sincronizar Sliders e Inputs
+    rangeAmount.addEventListener('input', (e) => {
+      inputAmount.value = e.target.value;
+      calculateCredit();
+    });
+    inputAmount.addEventListener('input', (e) => {
+      rangeAmount.value = e.target.value;
+      calculateCredit();
+    });
+    rangeTerm.addEventListener('input', (e) => {
+      inputTerm.value = e.target.value;
+      calculateCredit();
+    });
+    inputTerm.addEventListener('input', (e) => {
+      rangeTerm.value = e.target.value;
+      calculateCredit();
+    });
+
+    // Menú móvil
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Modal de Solicitud
+    const applyModal = document.getElementById('applyModal');
+    function openApplyModal() {
+      document.getElementById('modalProduct').value = SIM_CONFIG[currentProd].name;
+      document.getElementById('modalAmount').value = inputAmount.value;
+      document.getElementById('modalTerm').value = inputTerm.value;
+      document.getElementById('applyForm').classList.remove('hidden');
+      document.getElementById('applySuccess').classList.add('hidden');
+      applyModal.classList.remove('hidden');
+    }
+    function openApplyModalWithProduct(prodName) {
+      document.getElementById('modalProduct').value = prodName;
+      document.getElementById('modalAmount').value = 15000;
+      document.getElementById('modalTerm').value = 24;
+      document.getElementById('applyForm').classList.remove('hidden');
+      document.getElementById('applySuccess').classList.add('hidden');
+      applyModal.classList.remove('hidden');
+    }
+    function startApplicationFromSim() {
+      openApplyModal();
+    }
+    function closeApplyModal() {
+      applyModal.classList.add('hidden');
+    }
+    function handleApplySubmit(e) {
+      e.preventDefault();
+      document.getElementById('resTrackingCode').textContent = 'ARV-2026-' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('applyForm').classList.add('hidden');
+      document.getElementById('applySuccess').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    // Inicializar cálculo en carga
+    calculateCredit();
+  </script>
+</body>
+
+</html>

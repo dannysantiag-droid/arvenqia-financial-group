@@ -1,0 +1,6 @@
+{
+  "name": "ARVÉNQIA Financial Group",
+  "description": "Plataforma web institucional y simulador inteligente de crédito de ARVÉNQIA Financial Group. Soluciones crediticias ágiles, transparentes y personalizadas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
