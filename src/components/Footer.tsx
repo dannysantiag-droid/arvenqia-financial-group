@@ -12,15 +12,13 @@ import {
 } from 'lucide-react';
 
 interface FooterProps {
-  onOpenPrivacyModal: () => void;
-  onOpenTermsModal: () => void;
+  onOpenPrivacyModal?: () => void;
+  onOpenTermsModal?: () => void;
   onOpenClaimsModal: () => void;
   onOpenCodeModal: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
-  onOpenPrivacyModal,
-  onOpenTermsModal,
   onOpenClaimsModal,
   onOpenCodeModal,
 }) => {
@@ -158,14 +156,19 @@ export const Footer: React.FC<FooterProps> = ({
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
               <li>
-                <button onClick={onOpenPrivacyModal} className="hover:text-white transition-colors text-left">
+                <a href="/privacidad.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-left">
                   Política de Privacidad y Datos
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={onOpenTermsModal} className="hover:text-white transition-colors text-left">
+                <a href="/terminos.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-left">
                   Términos y Condiciones de Servicio
-                </button>
+                </a>
+              </li>
+              <li>
+                <a href="/eliminar-datos.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-left">
+                  Eliminación de Datos Personales
+                </a>
               </li>
               <li>
                 <button onClick={onOpenClaimsModal} className="hover:text-white transition-colors text-left">
@@ -215,9 +218,11 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
             <span>© 2026 ARVÉNQIA FINANCIAL GROUP. Todos los derechos reservados.</span>
             <div className="flex items-center gap-4 text-slate-400">
-              <button onClick={onOpenPrivacyModal} className="hover:text-white transition-colors">Privacidad</button>
+              <a href="/privacidad.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Privacidad</a>
               <span>·</span>
-              <button onClick={onOpenTermsModal} className="hover:text-white transition-colors">Términos</button>
+              <a href="/terminos.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Términos</a>
+              <span>·</span>
+              <a href="/eliminar-datos.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Eliminación de datos</a>
               <span>·</span>
               <button onClick={onOpenClaimsModal} className="hover:text-white transition-colors">Libro de Reclamaciones</button>
             </div>
