@@ -199,7 +199,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#C5A059] shrink-0" />
-                <span>contacto@arvenqiafinancial.com</span>
+                <span>arvenquiafinancialgroup@protonmail.com</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Clock className="w-4 h-4 text-[#C5A059] shrink-0" />
